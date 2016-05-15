@@ -27,7 +27,7 @@
     <?php wp_head(); ?>
 </head>
 <!--/head-->
-<body>
+<body <?php body_class();?> >
     <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -40,7 +40,7 @@
                 <a class="navbar-brand" href="index.html"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="logo"></a>
             </div>
             <div class="collapse navbar-collapse">
-                <?php wp_nav_menu (array ('theme_location'=> 'primary', 'menu_class'=>'nav navbar-nav navbar-right') ) ?>    
+                <?php wp_nav_menu (array ('theme_location'=> 'primary', 'menu_class'=>'nav navbar-nav navbar-right') ) ?> 
                 <!-- <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="about-us.html">About Us</a></li>
@@ -62,6 +62,7 @@
                     <li><a href="blog.html">Blog</a></li> 
                     <li><a href="contact-us.html">Contact</a></li>
                 </ul> -->
+                
             </div>
         </div>
     </header>

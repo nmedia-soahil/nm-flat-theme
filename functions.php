@@ -66,5 +66,44 @@ add_action('wp_enqueue_scripts', 'nm_flat_scripts');
 		***	function Syntex: <?php register_nav_menu(  array( 'theme-location', __( 'description', 'theme-slug' ) )); ?>
 		**/
 		register_nav_menu('primary', __( 'Primary Menu', 'nm_flat_theme' ));
+
+		/**
+		*** Enable support for Post Thumbnails on posts and pages. @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+		**/
+		add_theme_support ( 'post-thumbnails' );
+		set_post_thumbnail_size( 200, 200, true );
+
+		/**
+		*** Switch default core markup for search form, comment form, and comments
+		*** to output valid HTML5.
+		**/
+		add_theme_support( 'html5', array(
+		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption') );
+
+		$header_image = array (
+				'uploads' => true 
+		);
+		add_theme_support ( 'custom-header', $header_image );	
+			
 	}	
 add_action('after_setup_theme', 'nm_flat_theme');
+	/**
+	*** adding widget function
+	**/
+	function nm_flat_widget(){
+	
+	/**
+	*** registering first widget at homepage
+	**/
+	register_sidebar( 
+	array(
+		'name' => __( 'footer-widget-1', 'nm-flat-theme' ),
+		'id' => 'nm-footer-1',
+		'description' => __( 'This is home page wiget one', 'nm-flat-theme' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+		));
+	}
+add_action( 'widgets_init', 'nm_flat_widget' );
