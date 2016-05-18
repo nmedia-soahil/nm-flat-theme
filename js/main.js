@@ -8,6 +8,10 @@ jQuery(function($) {
 		});
 	});
 	
+	$('.nm_widget_box ul').addClass('list-group');
+    $('.nm_widget_box ul li').addClass('list-group-item');
+    $('.nm_widget_box table').addClass('table');
+	
 
 	$( '.centered' ).each(function( e ) {
 		$(this).css('margin-top',  ($('#main-slider').height() - $(this).height())/2);
@@ -24,10 +28,10 @@ jQuery(function($) {
 		$portfolio_selectors = $('.portfolio-filter >li>a');
 		if($portfolio_selectors!='undefined'){
 			$portfolio = $('.portfolio-items');
-			$portfolio.isotope({
-				itemSelector : 'li',
-				layoutMode : 'fitRows'
-			});
+			// $portfolio.isotope({
+			// 	itemSelector : 'li',
+			// 	layoutMode : 'fitRows'
+			// });
 			$portfolio_selectors.on('click', function(){
 				$portfolio_selectors.removeClass('active');
 				$(this).addClass('active');

@@ -8,7 +8,7 @@
 		*** css/main.css
 		*** js/main.js
 		**/
-		wp_enqueue_style('main-css', get_template_directory_uri().'/css/main.css' );
+		
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('main-js', get_template_directory_uri().'/js/main.js',array('jquery'));
 		
@@ -48,7 +48,8 @@
 	    wp_enqueue_style('apple-touch-icon', get_template_directory_uri().'/images/ico/apple-touch-icon-144-precomposed.png');
 	    wp_enqueue_style('apple-touch-icon-144', get_template_directory_uri().'/images/ico/apple-touch-icon-114-precomposed.png');
 	    wp_enqueue_style('apple-touch-icon-72', get_template_directory_uri().'/images/ico/apple-touch-icon-72-precomposed.png');
-	    wp_enqueue_style('apple-touch-icon-57', get_template_directory_uri().'/images/ico/apple-touch-icon-57-precomposed.png');    
+	    wp_enqueue_style('apple-touch-icon-57', get_template_directory_uri().'/images/ico/apple-touch-icon-57-precomposed.png');
+	    wp_enqueue_style('main-css', get_template_directory_uri().'/css/main.css' );
 	    
 	}
 add_action('wp_enqueue_scripts', 'nm_flat_scripts');
@@ -92,18 +93,20 @@ add_action('after_setup_theme', 'nm_flat_theme');
 	**/
 	function nm_flat_widget(){
 	
-	/**
-	*** registering first widget at homepage
-	**/
-	register_sidebar( 
-	array(
-		'name' => __( 'footer-widget-1', 'nm-flat-theme' ),
-		'id' => 'nm-footer-1',
-		'description' => __( 'This is home page wiget one', 'nm-flat-theme' ),
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
-		));
-	}
+		/**
+		*** registering first widget at footer
+		**/
+		for ($i=1; $i <= 4 ; $i++) { 
+            register_sidebar( 
+            array(
+                'name' => "Footer Widget $i",
+                'id' => 'nm-footer-'.$i,
+                'description' => __( 'This is footer widget '.$i, 'nm_flat_theme' ),
+                'before_widget' => '<div class="nm_widget_box">',
+                'after_widget' => '</div>',
+                'before_title' => '<h3>',
+                'after_title' => '</h3>',
+            ));                
+        }
+    }
 add_action( 'widgets_init', 'nm_flat_widget' );

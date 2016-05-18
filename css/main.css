@@ -27,7 +27,6 @@
   box-sizing: border-box;
 }
 body {
-  padding-top: 80px;
   color: #34495e;
   background: #f5f5f5;
   font-family: 'Roboto', sans-serif;
@@ -967,7 +966,6 @@ ul.rss li::before {
   margin: 0;
 }
 #footer ul > li {
-  display: inline-block;
   margin-left: 15px;
 }
 ul.social {
@@ -1086,4 +1084,8 @@ ul.faq li > div h3 {
   text-align: center;
   margin-top: 150px;
   margin-bottom: 150px;
+}
+.list-group >.list-group-item {
+     background-color: rgba(255, 255, 255, 0.15);
+ border: 1px solid rgb(221, 221, 221);   
 }

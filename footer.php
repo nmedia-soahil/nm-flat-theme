@@ -1,18 +1,42 @@
     <footer id="footer" class="midnight-blue">
-        <div class="container center">
-            <div class="row ">
-                <?php if(!dynamic_sidebar('nm-footer-1')):?>
-        
-                  <!--- our custom styles here --> 
-                <?php endif;?>
-            </div>
-        </div>
+          <div class="container">
+           <div class="row">
+              <?php
+               $sidebars_count = 0;    
+               for( $i = 1; $i <= 4; $i++ ){
+                   if ( is_active_sidebar( 'nm-footer-'. $i ) ) $sidebars_count++;
+               }
+           
+               $sidebar_class = '';
+               if( $sidebars_count > 0 ){
+                   switch( $sidebars_count ){
+                       case 2:
+                           $sidebar_class = 'col-sm-6';
+                           break; 
+                       case 3:
+                           $sidebar_class = 'col-sm-4';
+                           break; 
+                       case 4:
+                           $sidebar_class = 'col-sm-3';
+                           break;
+                       default:
+                           $sidebar_class = 'col-sm-12';
+                   }
+               }
+           ?>
+           
+           <?php 
+               for( $i = 1; $i <= 4; $i++ ){
+                   if ( is_active_sidebar( 'nm-footer-'. $i ) ){
+                       echo '<div class="'.$sidebar_class.'">';
+                           dynamic_sidebar( 'nm-footer-'. $i );
+                       echo '</div>';
+                   }
+               }
+           ?> 
+           </div>
+       </div>
     </footer>
-    <!--/#footer-->
-        <!-- <script src="js/jquery.js"></script> -->
-        <!-- <script src="js/bootstrap.min.js"></script> -->
-        <!-- <script src="js/jquery.prettyPhoto.js"></script> -->
-        <!-- <script src="js/main.js"></script> -->
 <?php wp_footer();?>
 </body>
 </html>

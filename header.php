@@ -50,7 +50,7 @@
                 ?>
 
                
-                <!-- <ul class="nav navbar-nav navbar-right">
+                <!-- <ul class="nav navbsar-nav navbar-right">
                     <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="about-us.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
