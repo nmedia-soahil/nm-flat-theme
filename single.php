@@ -2,7 +2,18 @@
 <section id="testimonial" class="alizarin">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 center">
+                    <?php
+
+                       if( has_post_thumbnail() ){
+                       the_post_thumbnail('medium',array('class'=>'img-thumbnail post-img img-responsive'));
+                       }
+                       else {
+                           echo '<img  class="img-thumbnail post-img img-responsive"  src="'.get_stylesheet_directory_uri(). '/images/blog/avatar2.png" />';
+                       }
+
+                   ?>
+
                     <?php
                     if( have_posts() ){
                       
@@ -22,7 +33,6 @@
                       
                     }
                     ?>
-                    <!--   -->
                 </div>
             </div>
         </div>

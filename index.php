@@ -12,8 +12,8 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="carousel-content centered">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
-                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                    <h1 class="animation animated-item-1">Welcom</h1>
+                                    <p class="animation animated-item-2"><?php echo get_option('blogdescription'); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,8 @@
                     </div>
                 </div><!--/.item-->
             </div><!--/.carousel-inner-->
-        </div><!--/.carousel-->
+        </div>
+        <!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
             <i class="icon-angle-left"></i>
         </a>
@@ -103,7 +104,7 @@
         </div>
     </section><!--/#services-->
 
-    <section id="recent-works">
+ <section id="recent-works">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -159,8 +160,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div><!--/.row-->
-                            </div><!--/.item-->
+                                </div>
+                            </div>
                             <div class="item">
                                 <div class="row">
                                     <div class="col-xs-4">
@@ -204,15 +205,16 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!--/.item-->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!--/.row-->
+            </div>
         </div>
-    </section><!--/#recent-works-->
+    </section>  
+    <!--/#recent-works-->
 
-    <section id="testimonial" class="alizarin">
+    <!-- <section id="testimonial" class="alizarin">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -246,18 +248,60 @@
                 </div>
             </div>
         </div>
-    </section><!--/#testimonial-->
+    </section> 
+ -->
+ <section id="bottom" class="wet-asphalt">
+            <div class="container">
+                <div class="row">
 
-    <section id="bottom" class="wet-asphalt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <?php
+                    if( have_posts() ){
+                      
+                        while( have_posts() ){
+                        
+                            the_post();
+                    ?>
+
+       
+                    <div class="col-md-12 center">
+
+                            <?php
+
+                               if( has_post_thumbnail() ){
+                               the_post_thumbnail('medium',array('class'=>'img-thumbnail post-img img-responsive'));
+                               }
+                               else {
+                                   echo '<img  class="img-thumbnail post-img img-responsive"  src="'.get_stylesheet_directory_uri(). '/images/blog/avatar.jpg" />';
+                               }
+
+                           ?>
+                            <div>
+                            <h2><?php the_title();?></h2>
+                            <span><?php the_date(); ?></span>
+                            
+                            <span><?php the_excerpt(); ?></span>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-default btn-sm post-button post-button">READ MORE</a>
+                            </div>
+                    </div>
+                    <hr>
+
+                        <?php
+                            
+                        }
+                      
+                    }
+                    ?>
+                </div>
+            </div>
+    </section><!--/#bottom-->
+
+                <!-- <div class="col-md-3 col-sm-6">
                     <h4>About Us</h4>
                     <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
                     <p>Pellentesque habitant morbi tristique senectus.</p>
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <h4>Company</h4>
                     <div>
                         <ul class="arrow">
@@ -272,9 +316,9 @@
                             <li><a href="#">Copyright</a></li>
                         </ul>
                     </div>
-                </div><!--/.col-md-3-->
+                </div><!--/.col-md-3--> 
 
-                <div class="col-md-3 col-sm-6">
+                <!-- <!-- <div class="col-md-3 col-sm-6">
                     <h4>Latest Blog</h4>
                     <div>
                         <div class="media">
@@ -307,7 +351,7 @@
                     </div>  
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6">
                     <h4>Address</h4>
                     <address>
                         <strong>Twitter, Inc.</strong><br>
@@ -324,8 +368,6 @@
                             </span>
                         </div>
                     </form>
-                </div> <!--/.col-md-3-->
-            </div>
-        </div>
-    </section><!--/#bottom-->
+                </div> --> <!--/.col-md-3-->
+            
 <?php get_footer(); ?>
