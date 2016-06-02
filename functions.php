@@ -110,3 +110,9 @@ add_action('after_setup_theme', 'nm_flat_theme');
         }
     }
 add_action( 'widgets_init', 'nm_flat_widget' );
+
+
+    /**
+    ***  Include  Customizer API Setting in Funtion.php 
+    **/
+    require get_template_directory() . '/includes/customizer.php';

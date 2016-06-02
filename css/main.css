@@ -27,6 +27,7 @@
   box-sizing: border-box;
 }
 body {
+  margin-top: 48px;
   color: #34495e;
   background: #f5f5f5;
   font-family: 'Roboto', sans-serif;
